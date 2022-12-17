@@ -1,4 +1,5 @@
 <script>
+    import { base } from "$app/paths";
     import "../app.css";
     import { onMount } from 'svelte';
     import { themeChange } from 'theme-change';
@@ -7,21 +8,22 @@
         themeChange(false)
         // 👆 false parameter is required for svelte
     })
+    export const prerender = true;
 </script>
 
 <div class="navbar bg-base-300 rounded-box bg-primary">
     <div class="flex-1 px-2 lg:flex-none">
       <a href="/"><img src="avatar.svg" class="w-10"></a>
-      <a class="text-lg font-bold" href="/">Tofu_Beans</a>
+      <a class="text-lg font-bold" href="{base}/">Tofu_Beans</a>
     </div> 
     <div class="flex justify-end flex-1 px-2">
       <div class="flex items-stretch">
-        <a class="btn btn-ghost rounded-btn" href="/about">About</a>
+        <a class="btn btn-ghost rounded-btn" href="{base}/about">About</a>
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost rounded-btn">Projects</label>
           <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-300 rounded-box w-52 mt-4">
-            <li><a href="/proj1">Test 1</a></li> 
-            <li><a href="/proj2">Test 2</a></li>
+            <li><a href="{base}/proj1">Test 1</a></li> 
+            <li><a href="{base}/proj2">Test 2</a></li>
           </ul>
         </div>
             <div title="Change Theme" class="dropdown dropdown-end ">
